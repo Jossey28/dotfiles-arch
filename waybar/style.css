@@ -1,122 +1,156 @@
-/* 全局设置 */
-* {
-  font-family: "CaskaydiaCove Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
-  font-weight: bold;
-  font-size: 16px;
-  color: #dcdfe1;
+@define-color background #1A1A1A;
+/* @define-color background #161616; */
+@define-color on_background #B3B3B3;
+/* @define-color on_background #767676; */
+@define-color foreground #333333;
+@define-color on_foreground #dedede;
+@define-color active_primary #ffffff;
+@define-color on_active_primary #161616;
+@define-color active_secondary #5c5c5c;
+@define-color on_active_secondary #161616;
+/* @define-color foreground #2e2e2e; */
+/* @define-color on_foreground #dedede; */
+/* @define-color active_primary #ffffff; */
+/* @define-color on_active_primary #161616; */
+/* @define-color active_secondary #5c5c5c; */
+/* @define-color on_active_secondary #161616; */
+
+
+window#waybar {
+    background-color: #161616;
+    border: 0.1px solid white;
 }
 
-/* 透明 Waybar 背景 */
-#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  box-shadow: none;
+#custom-power {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 14px;
+  /* background-color: #262626; */
+  color: #767676;
+  border-radius: 25px;
+  /* padding: 0 5px 0 10px; */
+  margin-left: 9px;
+  min-height: 0;
 }
 
-/* 所有模块统一风格 */
-#workspaces,
-#window,
-#tray{
-  /*background-color: rgba(29,31,46, 0.95);*/
-  background-color: rgba(15,27,53,0.9);
-  padding: 4px 6px; /* 保持内部间距 */
-  margin-top: 6px; /* 外部间距增加 */
-  margin-left: 6px; /* 外部间距增加 */
-  margin-right: 6px; /* 外部间距增加 */
-  border-radius: 10px;
-  border-width: 0px;
+#workspaces {
+  /* background-color: @surface; */
+  /* color: @on_surface; */
+  /* padding: 1px 4px; */
+  margin-left: 4px;
+  /* border-radius: 25px; */
 }
 
-#clock,
-#custom-power{
-  background-color: rgba(15,27,53,0.9);
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  margin-right: 6px;
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
-  border-radius: 0 10px 10px 0;
-  border-width: 0px;
-}
-
-#network,
-#custom-lock{
-  background-color: rgba(15,27,53,0.9);
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  margin-left: 6px;
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
-  border-radius: 10px 0 0 10px;
-  border-width: 0px;
-}
-
-#custom-reboot,
-#bluetooth,
-#battery,
-#pulseaudio,
-#backlight,
-#custom-temperature,
-#memory,
-#cpu{
-  background-color: rgba(15,27,53,0.9);
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
-  border-width: 0px;
-}
-
-#custpm-temperature.critical,
-#pulseaudio.muted {
-  color: #FF0000;
-  padding-top: 0;
-}
-
-/* 鼠标悬停变亮一点 */
-#bluetooth:hover,
-#network:hover,
-/*#tray:hover,*/
-#backlight:hover,
-#battery:hover,
-#pulseaudio:hover,
-#custom-temperature:hover,
-#memory:hover,
-#cpu:hover,
-#clock:hover,
-#custom-lock:hover,
-#custom-reboot:hover,
-#custom-power:hover,
-/*#workspaces:hover,*/
-#window:hover {
-  background-color: rgba(70, 75, 90, 0.9);
-}
-
-/* 工作区激活状态高亮 */
-#workspaces button:hover{
-  background-color: rgba(97, 175, 239, 0.2);
-  padding: 2px 8px;
-  margin: 0 2px;
-  border-radius: 10px;
-}
-
-#workspaces button.active {
-  background-color: #61afef; /* 蓝色高亮 */
-  color: #ffffff;
-  padding: 2px 8px;
-  margin: 0 2px;
-  border-radius: 10px;
-}
-
-/* 未激活工作区按钮 */
 #workspaces button {
-  background: transparent;
-  border: none;
-  color: #888888;
-  padding: 2px 8px;
-  margin: 0 2px;
-  font-weight: bold;
+    font-family: JetbrainsMono Nerd Font, monospace; 
+    font-size: 10px;
+    padding: 0 0.2em;
+    margin: 1px 1px;
+    background-color: @foreground;
+    color: @on_foreground;
+    border: 0.2px solid white;
+    /* border-radius: 15px; */
+    transition: all 0.3s linear;
+    border-radius: 0px;
+    min-height: 0;
 }
+
+#workspaces button.active, 
+#workspaces button.focused {
+    background-color: @active_secondary;
+    color: white;
+}
+
+#workspaces button:hover {
+    background-color: @active_primary;
+    color: @on_active_primary;
+    transition: all 0.3s linear;
+}
+
 
 #window {
-  font-weight: 500;
-  font-style: italic;
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 12px;
+  background-color: @foreground;
+  color: @on_foreground;
+  /* border-radius: 25px; */
+  padding: 0 10px;
+  margin-left: 4px;
+  min-height: 0;
+}
+
+#clock.time{
+    font-family: JetbrainsMono Nerd Font, monospace;
+    font-size: 12px;
+    color: @on_background;
+    /* border-radius: 25px; */
+    padding: 0px 0px 0px 10px;
+    margin-left: 4px;
+    min-height: 0;
+}
+
+#clock.date {
+    font-family: JetbrainsMono Nerd Font, monospace;
+    font-size: 12px;
+    color: @on_background;
+    /* border-radius: 25px; */
+    padding: 0 0px;
+    margin-left: 4px;
+    min-height: 0;
+}
+
+#cpu, #memory {
+    font-family: JetbrainsMono Nerd Font, monospace;
+    font-size: 12px;
+    color: @on_background;
+    /* border-radius: 25px; */
+    padding: 0 10px;
+    margin-right: 4px;
+    min-height: 0;
+}
+
+#tray {
+  font-family: JetbrainsMono Nerd Font, monospace;
+  font-size: 12px;
+  color: @on_primary_container;
+  /* border-radius: 25px; */
+  padding: 0 10px;
+  margin-right: 4px;
+  min-height: 0;
+}
+
+#mpris {
+  font-family: JetbrainsMono Nerd Font, monospace;
+  font-size: 12px;
+  color: @on_background;
+  /* border-radius: 25px; */
+  padding: 0 10px;
+  margin-right: 4px;
+  min-height: 0;
+}
+
+#mpris.spotify {
+  background-color: #859900;
+  color: black;
+}
+
+#wireplumber {
+  font-family: JetbrainsMono Nerd Font, monospace;
+  font-size: 12px;
+  color: @on_background;
+  /* border-radius: 25px; */
+  padding: 0 10px;
+  margin-right: 4px;
+  min-height: 0;
+}
+
+#custom-notif {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 12px;
+  /* background-color: @primary_container; */
+  color: @on_background;
+  /* border-radius: 25px; */
+  padding: 0 11px 0 10px;
+  margin-right: 4px;
+  min-height: 0;
 }
 

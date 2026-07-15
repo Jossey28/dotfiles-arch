@@ -1,11 +1,26 @@
+# First we ignore everything
 /*
 
+# Then we choose the files we'd want to keep
 !.gitignore
 
+!user-dirs.dirs
+
+# And finally, the folders
 !hypr
+
 !waybar
+
 !kitty
+
 !fuzzel
+
 !fish
 
 !nvim
+
+!assets
+
+!tmux
+
+!gtk-3.0
