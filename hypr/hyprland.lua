@@ -15,12 +15,14 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-  output   = "eDP-1",
-  mode = "1920x1200@60.00300",
-  position = "auto",
-  scale    = 1,
-})
+-- Configuring this w/ Monique
+require("monitors")
+-- hl.monitor({
+--   output   = "eDP-1",
+--   mode = "1920x1200@60.00300",
+--   position = "auto",
+--   scale    = 1,
+-- })
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -275,9 +277,17 @@ hl.env("HYPRCURSOR_SIZE", "24")
           hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
           -- Screenshot stuff
-          hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
-          hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/Pictures/Screenshot-$(date +'%Y-%m-%d-%H%M%S').png"))
+          -- hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+          -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" ~/media/pictures/screenshot-$(date +'%Y-%m-%d-%H%M%S').png"))
+          
+          hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("grimblast --freeze copy area"))
+          hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast --freeze save area ~/media/pictures/screenshot-$(date +'%Y-%m-%d-%H%M%S').png"))
 
+          -- Locking the screen
+          hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("hyprlock"))
+
+          -- Emoji clipboard
+          hl.bind(mainMod .. " + PERIOD", hl.dsp.exec_cmd("fuzzel-emoji"))
 
           -- Move focus with mainMod + arrow keys
           hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

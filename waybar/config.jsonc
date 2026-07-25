@@ -1,117 +1,142 @@
 {
-	"reload_style_on_change": true,
-	"layer": "bottom",
-	"position": "top",
-	"margin-top": 0,
-	"name": "main",
-	// "margin-bottom": 0,
+  "reload_style_on_change": true,
+  "layer": "bottom",
+  "position": "top",
+  "margin-top": 0,
+  "name": "main",
+  // "margin-bottom": 0,
 
-	"modules-left": ["custom/power", "hyprland/workspaces"],
-	"modules-center": ["clock#date", "clock#time"],
-	"modules-right": ["cpu", "memory", "mpris", "tray", "wireplumber", "custom/notif"],
+  "modules-left": ["custom/power", "hyprland/workspaces"],
+  "modules-center": ["clock#date", "clock#time"],
+  "modules-right": ["tray", "mpris","custom/warp-status","battery","cpu", "memory", "wireplumber", "custom/notif"],
 
-	"custom/power": {
-		"format": "󰣇 ",
-		"on-click": "wlogout",
-		"tooltip": false
-	},
+  "custom/power": {
+    "format": "󰣇 ",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
 
-	"hyprland/workspaces": {
-		"disable-scroll": true,
-		"all-outputs": true
-	},
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate"
+  },
 
-	"clock#time": {
-		"interval": 1,
-		"format": "{:%I:%M:%S %p}",
-		//"format-alt": "{:%A, %B %d (%R)}"
-	},
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%I:%M:%S %p}",
+    //"format-alt": "{:%A, %B %d (%R)}"
+  },
 
-	"clock#date": {
-		"format": "{:%a, %b %d, %Y}",
-		//"min-length": 8,
-		//"max-length": 8,
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"mode": "month",
-			"mode-mon-col": 3,
-			// "week-pos":
-			// "on-scroll":
-			"format": {
-				"months": "<span color='#ffffff'><b>{}</b></span>",
-				"days": "<span color='#767676'>{}</span>",
-				// "weeks":
-				"weekdays": "<span color='#dedede'><i>{}</i></span>",
-				"today": "<span alpha='100%'><b><u>{}</u></b></span>"
-			}
-		},
+  "clock#date": {
+    "format": "{:%a, %b %d, %Y}",
+    //"min-length": 8,
+    //"max-length": 8,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      // "week-pos":
+      // "on-scroll":
+      "format": {
+        "months": "<span color='#ffffff'><b>{}</b></span>",
+        "days": "<span color='#767676'>{}</span>",
+        // "weeks":
+        "weekdays": "<span color='#dedede'><i>{}</i></span>",
+        "today": "<span alpha='100%'><b><u>{}</u></b></span>"
+      }
+    },
 
-		"actions": {
-			"on-click": "mode",
-			"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
-		}
-	},
-	"network": {
-		"format-wifi": "  {signalStrength}%",
-		"format-ethernet": "󰈀  Connected",
-		"format-disconnected": "  Offline"
-	},
+    "actions": {
+      "on-click": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  Connected",
+    "format-disconnected": "  Offline"
+  },
 
-	"cpu": {
-	    "format": "  {usage}%",
-		"interval": 5
-	},
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 5
+  },
 
-	"memory": {
-		"format": "  {used} GB",
-		"tooltip-format": "{percentage}% memory used\n{swapUsed} GB swap used\n{avail} GB memory available",
-		"interval": 5
-	},
+  "memory": {
+    "format": "  {used} GB",
+    "tooltip-format": "{percentage}% memory used\n{swapUsed} GB swap used\n{avail} GB memory available",
+    "interval": 5
+  },
 
-	"tray": {
-		"show-passive-items": true,
-		"spacing": 10
-	},
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
 
-	"mpris": {
-		"format": "{status_icon}{player_icon}{dynamic}",
-		"player-icons": {
-			"default": " ",
-			"spotify": " ",
-			"firefox": " "
-		},
-		"status-icons": {
-			"paused": "  ",
-			"playing": "  "
-		},
-	    "max-length": 25
-	},
+  "mpris": {
+    "format": "{status_icon}{player_icon}{dynamic}",
+    "player-icons": {
+      "default": " ",
+      "spotify": " ",
+      "firefox": " "
+    },
+    "status-icons": {
+      "paused": "  ",
+      "playing": "  "
+    },
+    "max-length": 25
+  },
 
-	"wireplumber": {
-		"format": "  {volume}%",
-		"format-muted": "  00%",
-		"on-click": "com.saivert.pwvucontrol"
-	},
+  "wireplumber": {
+    "format": "  {volume}%",
+    "format-muted": "  00%",
+    "on-click": "com.saivert.pwvucontrol"
+  },
 
-	"custom/notif": {
-		"tooltip": true,
-		"format": "<span size='11pt'>{icon}</span>",
-		"format-icons": {
-			"notification": "󱅫",
-			"none": "󰂜",
-			"dnd-notification": "󰂠",
-			"dnd-none": "󰪓",
-			"inhibited-notification": "󰂛",
-			"inhibited-none": "󰪑",
-			"dnd-inhibited-notification": "󰂛",
-			"dnd-inhibited-none": "󰪑"
-		},
-		"return-type": "json",
-		"exec-if": "which swaync-client",
-		"exec": "swaync-client -swb",
-		"on-click": "swaync-client -t -sw",
-		"on-click-right": "swaync-client -d -sw",
-		"escape": true
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "max-length": 25
+  },
+
+  "custom/notif": {
+    "tooltip": true,
+    "format": "<span size='11pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/warp-status": {
+    "exec": "~/.config/.assets/scripts/warp-status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "~/.config/.assets/scripts/warp-toggle.sh",
+    "signal": 8
   }
 }
