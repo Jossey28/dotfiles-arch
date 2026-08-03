@@ -6,6 +6,8 @@
 
 !user-dirs.dirs
 
+!mimeapps.list
+
 # And finally, the folders
 !hypr
 
@@ -19,8 +21,14 @@
 
 !nvim
 
-!assets
+!.assets
 
 !tmux
 
 !gtk-3.0
+
+!ly
+
+!autostart
+
+!xdg-desktop-portal
