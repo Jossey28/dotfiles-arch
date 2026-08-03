@@ -9,13 +9,3 @@ hl.monitor({
   sdr_min_luminance = 0.2,
   sdr_max_luminance = 80,
 })
-
-hl.monitor({
-  output = "desc:Sharp Corporation SHARP HDMI",
-  mode = "1920x1080@60",
-  position = "1920x0",
-  scale = 1,
-  cm = "srgb",
-  sdr_min_luminance = 0.2,
-  sdr_max_luminance = 80,
-})

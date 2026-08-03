@@ -45,12 +45,16 @@ local clipboardManager = "cliphist list | fuzzel --dmenu | cliphist decode | wl-
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-  -- Getting the daemons up
-  hl.exec_cmd("nm-applet")
-  hl.exec_cmd("blueman-applet")
+  -- Start the bar and daemons first
   hl.exec_cmd("waybar")
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("swaync")
+  
+  -- Add a slight delay to tray applets so Waybar has time to load the system tray
+  hl.exec_cmd("bash -c 'sleep 1 && nm-applet'")
+  hl.exec_cmd("bash -c 'sleep 1 && blueman-applet'")
+  
+  hl.exec_cmd("vesktop")
 
   -- Clipboard stuff
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
